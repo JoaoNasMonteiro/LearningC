@@ -2,30 +2,47 @@
 #include <stdlib.h>
 #include <string.h>
 
-char *copy_string(char *source, char *dest);
+void copy_string(char *source, char **dest);
 
 int main(){
-	char *m = "XXX";
-	char *n = "AAA";
+	char *src = "XXX";
+	char *dst = ""; 
 
-	printf("%s is the string before copying\n", n);
+	dst = malloc(strlen(src) + 1);
+	if (dst == NULL){
+		printf("Falha ao alocar memória");
+		return 1;
+	}
 
-	copy_string(m, n);
+	printf("%s is the string before copying\n", dst);
 
-	printf("%s is the string after copying\n", n);
+	copy_string(src, &dst);
+
+	printf("%s is the string after copying\n", dst);
+
+	free(dst);
 	return 0;
 }
 
-char *copy_string(char *source, char *dest){
-	char *dest = malloc(sizeof(source));
+void copy_string(char *source, char **dest){
 
-	int size = sizeof(dest) / sizeof(char);
+	int len = strlen(source);
 
-	for (int i = 0; i < size; i++){
-		dest[i] = source[i];
+	*dest = malloc(len + 1);
+	
+	if (*dest == NULL){
+		printf("Falha ao alocar memória");
+		return 1;
 	}
 
-	return dest;
+	for (int i = 0; i < len; i++){
+		*(*dest + i) = *(source + i);
+	}
+
+	*(*dest + len) = '\0';
+
+	return;
+
 
 }
 
