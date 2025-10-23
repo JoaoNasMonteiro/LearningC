@@ -42,7 +42,5 @@ void copy_string(char *source, char **dest){
 	*(*dest + len) = '\0';
 
 	return;
-
-
 }
 

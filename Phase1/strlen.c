@@ -1,15 +1,16 @@
 #include <stdio.h>
-// #include <stdlib.h>
+
+int string_legth(char* str);
 
 int main() {
-	char str[20] = "";
+	char *str = "Hellow, orld";
+	int size = string_legth(str);
 
-	scanf("%s", str);
-
-
-	// Figure out size of the string from the size of the characters
-	int size = sizeof(str) / sizeof(char);
 	printf("The size of the string is %d characterrs long as per my implementantionb", size);
 	return 0;
 }
 
+int string_legth(char* str){
+
+	return (sizeof(str) / sizeof(char));
+}
