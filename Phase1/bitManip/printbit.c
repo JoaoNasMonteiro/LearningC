@@ -1,12 +1,10 @@
 #include <stdio.h>
-#include <stdint.h>
 
 // a function that takes in an int and returns he binary representation in a string.
-void getBitRepresentation(uint8_t n, char* buffer);
+void getBitRepresentation(unsigned char n, char* buffer);
 
 int main(){
-    uint8_t number = 232;
-    printf("%u\n", number);
+    unsigned char number = ~16;
     char binstr[9];
     getBitRepresentation(number, binstr);
     printf("%s", binstr);
@@ -15,7 +13,7 @@ int main(){
     return 0;
 }
 
-void getBitRepresentation(uint8_t n, char* buffer){
+void getBitRepresentation(unsigned char n, char* buffer){
     buffer[8] = '\0';
 
     // Alternativa com aritmética comum
@@ -27,7 +25,7 @@ void getBitRepresentation(uint8_t n, char* buffer){
     //laternativa com manipulação de bits
 
     for (int i = 0; i < 7; i++){
-        uint8_t bit = (n >> (7-i)) & 1;
+        unsigned char bit = (n >> (7-i)) & 1;
         buffer[i] = bit + '0'; 
     }
 

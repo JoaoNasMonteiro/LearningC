@@ -1,0 +1,62 @@
+## Lista de Entregáveis/Etapas
+- ### **Fase 1** - Fundamentos de C 1-12
+    - [[Fase 1 - Projeto Aprender C]]
+    - *Objetivos*
+        - me tornar confortável em escrever C eficiente e seguro
+        - Pointers, memória, operações bit-level
+        - Revisar básicos de OS
+    - 1.2
+        - Operacoes bitwise (masking, shifting)
+        - trabalhar com structs de unions
+        - Projetos: sistema de permissoes (flags) binarias com grant_permission, remove_permission e read_permissions; impressor binàrio; criptografia XOR simples; extrator de RGB
+    - 1.3
+        - I/O de arquivos em C: fopen, fread, fwrite
+        - Projeto: Implementar cp e WC simplificados manualmente; visualizador de arte ASCII; .elf hex visualizer
+    - 1.4
+        - Estudar básicos de OS (fonte recomendada: Computer Systems: A Programmer's Perspective)
+        - Foco: processos, threads e scheduling
+        - Projeto: escrever um monitor de processos simples usando /proc (tipo um mini top); parser de arquivos .elf
+-
+---
+- # Intermissão: [[Projeto Malware Analysis]]
+- ### **Fase 2** - System Calls & Programação em Unix 13-24
+    - *Objetivos*
+        - Aprender a interagir com o OS diretamente
+        - Entender processos, sinais e IPC
+        - Revisar básicos de OS
+    - 2.1
+        - System calls (open, read, write, close)
+        - Handling de erro com errno
+        - Projeto: Implementar um programa tipo tail -f
+    - *2.2
+        - Processos: fork, exec, wait
+        - Projeto: Implementar um shell simples em UNIX que consegue executar comandos
+    - 2.3
+        - sinais: signal, kill
+        - Projeto: extender o shell para fazer handling de sinais (Ctrl+Z, Ctrl+C)
+    - 2.4
+        - IPC (Pipes, FIFOs)
+        - Networking, intro a sockets (socket, bind, accept)
+        - Projeto: servidor e cliente simples de TCP echo
+    - Recursos:
+        - The Linux programming interface
+        - Beej's guide to network programming
+- ### **Fase 3** - OS internals + Projetos Orientados a Segurança 25-36
+    - *Objetivos*
+        - entender como o OS implementa syscalls
+        - Aprender Hands-On com a gestão de memória, filesystems, módulos do kernel, etc.
+        - Conectar a conceitos de segurança
+    - 3.1
+        - memory internals: stack vs heap, segmentation, paging
+        - Projeto: Implementar alocador de memória (malloc/free replacement)
+    - 3.2
+        - Filesystems: inodes, ext4 basics
+        - Projeto: Implementar um toy filesystem com FUSE
+    - 3.3
+        - threads e concurrency (pthreads)
+        - Projeto: escrever um servidor web multithreaded que serve arquivos estáticos
+    - 3.4
+        - Integração com segurança
+            - Estudar buffer overfloe e memory safety issues
+            - Hardener o servidor (firewall, seccomp, AppArmor)
+            - Escrever uma sandbox pequena com ptrace

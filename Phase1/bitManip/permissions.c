@@ -18,8 +18,6 @@ int main(){
     getBitRepresentation(flag, binbuf);
     printf("%s, n: %d \n", binbuf, (int)flag);
 
-    readPerm(flag);
-
     return 0;
 }
 
@@ -42,7 +40,7 @@ void setPerm(unsigned char *flag, char* mode){
                 break;
             //set execute perm
             case 'x':
-                *flag |= 1 << 3;
+                *flag |= 14;
                 break;
             default:
                 printf("Error: no valid mode operator found");
@@ -60,20 +58,9 @@ void getBitRepresentation(unsigned char n, char* buffer){
 
     buffer[8] = '\0';
 
+
 }
 
-void readPerm(unsigned char flag){
-    // chech for append permissions (set bit at one's position)
-    if (flag & 1){
-        printf("The perimission 'Append' is set \n");
-    } if (flag & 1 << 1){ // check for read permissions (set bit at two's)
-        printf("The permission 'Read' is set");
-    } if (flag & 1 << 2){ // check for write permissions (set bit at fours's)
-        printf("The permission 'Write' is set");
-    } if (flag & 1 << 3){ // check for exec permissions (set bit at eight's)
-        printf("The permission 'Execute' is set");
-    }
-}
 
 
 
